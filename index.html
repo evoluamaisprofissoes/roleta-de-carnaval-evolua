@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Roleta De Carnaval Evolua+ Profissões</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#0b0f2a" />
+</head>
+
+<body>
+  <div class="bg-glow"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img class="logo" src="assets/logo-evolua.png" alt="Evolua+ Profissões" onerror="this.style.display='none'">
+      <div class="brand-text">
+        <div class="kicker">AÇÃO PROMOCIONAL</div>
+        <h1>Roleta De Carnaval <span class="accent">Evolua+ Profissões</span></h1>
+        <p class="sub">Gire a roleta e ganhe prêmios e descontos exclusivos nos nossos cursos 🎉</p>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-ghost" id="btnRules" href="#regras">Regras</a>
+      <a class="btn btn-primary" id="btnWhatsTop" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel wheel-panel">
+      <div class="wheel-wrap">
+        <div class="marquee" aria-hidden="true"></div>
+
+        <div class="wheel-stage">
+          <canvas id="wheel" width="760" height="760" aria-label="Roleta de prêmios"></canvas>
+
+          <div class="pointer" aria-hidden="true">
+            <div class="pointer-tip"></div>
+            <div class="pointer-body"></div>
+          </div>
+
+          <div class="center-cap" aria-hidden="true">
+            <div class="cap-inner">E+</div>
+          </div>
+
+          <div class="lights" id="lights" aria-hidden="true"></div>
+        </div>
+
+        <div class="controls">
+          <button class="btn btn-spin" id="spinBtn">
+            <span class="spin-emoji">🎭</span> GIRAR A ROLETA
+          </button>
+          <button class="btn btn-ghost" id="resetBtn" title="Reiniciar (para testes)">
+            Reiniciar
+          </button>
+        </div>
+
+        <div class="meta">
+          <div class="badge" id="statusBadge">Pronto pra girar</div>
+          <div class="small">Dica: após ganhar, clique em <b>Resgatar no WhatsApp</b> 😉</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel info-panel" id="regras">
+      <h2>Como funciona</h2>
+      <ol class="rules">
+        <li>Clique em <b>GIRAR A ROLETA</b>.</li>
+        <li>A roleta vai girar com movimento realista e parar em um prêmio.</li>
+        <li>Você recebe um <b>código</b> para resgatar no WhatsApp.</li>
+        <li>Válido enquanto durar a ação de Carnaval.</li>
+      </ol>
+
+      <div class="divider"></div>
+
+      <h3>Prêmios possíveis</h3>
+      <ul class="prizes" id="prizeList"></ul>
+
+      <div class="divider"></div>
+
+      <h3>Quer fechar agora?</h3>
+      <p class="small">
+        Você pode aproveitar o prêmio e já garantir matrícula / desconto no atendimento.
+        Clique no botão abaixo e mande seu código.
+      </p>
+
+      <a class="btn btn-primary btn-full" id="btnWhatsBottom" target="_blank" rel="noopener">
+        Resgatar no WhatsApp
+      </a>
+
+      <p class="tiny">
+        *Promoção sujeita a regras internas. Prêmios não cumulativos, salvo autorização.
+      </p>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-head">
+        <div class="pill">RESULTADO</div>
+        <button class="icon-btn" id="closeModal" aria-label="Fechar">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <h2 id="resultTitle">Você ganhou!</h2>
+        <p id="resultText" class="result-text"></p>
+
+        <div class="codebox">
+          <div class="code-label">Seu código:</div>
+          <div class="code" id="resultCode">EVO-CARNAVAL-0000</div>
+          <button class="btn btn-ghost" id="copyCodeBtn">Copiar código</button>
+        </div>
+
+        <div class="modal-actions">
+          <a class="btn btn-primary" id="redeemBtn" target="_blank" rel="noopener">Resgatar no WhatsApp</a>
+          <button class="btn btn-ghost" id="spinAgainBtn">Girar de novo</button>
+        </div>
+
+        <p class="tiny">Envie o código no WhatsApp para validação e resgate.</p>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
